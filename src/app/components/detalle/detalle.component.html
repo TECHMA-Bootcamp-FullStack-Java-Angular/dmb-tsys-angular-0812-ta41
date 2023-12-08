@@ -1,0 +1,19 @@
+<div class="container">
+  <div id="personaje" class="mx-auto col-sm-3">
+  <div class="card shadow-lg p-2" style="width: 18rem">
+
+    <img [src]="character?.image" alt="imagen character" />
+
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ character?.name | uppercase }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Status: {{ character?.status | uppercase }}</li>
+      <li class="list-group-item">Type: {{ character?.type || ' Sin datos ' }}</li>
+      <li class="list-group-item">Gender: {{ character?.gender }}</li>
+      <li class="list-group-item">Origin: {{ character?.origin.name }}</li>
+    </ul>
+
+  </div>
+</div>
+</div>
