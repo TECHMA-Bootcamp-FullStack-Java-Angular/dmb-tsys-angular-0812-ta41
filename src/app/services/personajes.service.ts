@@ -16,10 +16,10 @@ export class PersonajesService {
   character = new BehaviorSubject([])
 
 
-  
+
     getCharacter(): Observable<any> {
       const url = `${this.url}/`;
-      return  this.http.get<any>(url).pipe(catchError(this.handleError));
+      return  this.http.get<any>(url+`?page=${this.getRandomNumber()}`).pipe(catchError(this.handleError));
   }
 
 
@@ -34,6 +34,11 @@ export class PersonajesService {
       );
     }
     return 'Something bad happened; please try again later.';
+  }
+
+
+  getRandomNumber() {
+    return Math.floor(Math.random() * 42) + 1;
   }
 
 
