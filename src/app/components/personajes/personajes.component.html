@@ -14,12 +14,23 @@
               />
               <div class="card-body">
                 <h5 class="card-title text-center mb-2">{{ character.name }}</h5>
-                <button
-                  class="btn btn-sm btn-primary d-flex mt-3"
-                  (click)="seeMore(character.id, character)"
-                >
-                  Ver
-                </button>
+                <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary"
+                    (click)="seeMore(character.id, character)"
+                  >
+                    Ver Detalles
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-danger"
+                    (click)="deleteLocal(character.id)"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+
               </div>
             </div>
           </div>

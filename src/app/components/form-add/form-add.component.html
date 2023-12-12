@@ -1,0 +1,57 @@
+
+<div class="container mt-5">
+  <div class="card col-6 mx-auto p-3 shadow mt-5">
+    <form [formGroup]="characterForm" (ngSubmit)="addCharacter()">
+      <div  class="form-group">
+        <label for="id">ID</label>
+        <input type="number" class="form-control"
+        formControlName="id"
+         id="id" name="id">
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+        formControlName="name"
+         id="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control"
+        formControlName="status"
+         id="status" name="status">
+      </div>
+      <div class="form-group">
+        <label for="species">Species</label>
+        <input type="text" class="form-control"
+        formControlName="species"
+        id="species" name="species">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" class="form-control"
+        formControlName="gender"
+        id="gender" name="gender">
+      </div>
+      <div class="form-group">
+        <label for="origin">Origin</label>
+        <input type="text" class="form-control"
+        formControlName="origin"
+        id="origin" name="origin">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control"
+        formControlName="location"
+        id="location" name="location">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control"
+        formControlName="image"
+        id="image" name="image">
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Añadir</button>
+    </form>
+  </div>
+</div>
+

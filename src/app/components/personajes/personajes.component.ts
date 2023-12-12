@@ -9,19 +9,21 @@ import { Router } from '@angular/router';
   templateUrl: './personajes.component.html',
   styleUrl: './personajes.component.css'
 })
-export class PersonajesComponent  implements OnInit {
+export class PersonajesComponent implements OnInit {
+
 
   characters = signal<any[]>([]);
 
-  constructor(private personajesService: PersonajesService, private router: Router ) {}
+  constructor(private personajesService: PersonajesService, private router: Router) { }
 
 
   ngOnInit() {
-    this.getPersonaje();
+    //  this.getPersonaje();
+    this.getPersonajeLocal();
   }
 
   seeMore(id: any, character: any) {
-    this.personajesService.character = this.characters().find((elem: any) => elem.id == id)
+    this.personajesService.character = this.characters().find((elem: any) => elem.id == id);
     this.router.navigate(['/detalles', character.id]);
   }
 
@@ -30,7 +32,7 @@ export class PersonajesComponent  implements OnInit {
 
       next: result => {
         if (result.results && Array.isArray(result.results)) {
-          this.characters.set(result.results)
+          this.characters.set(result.results);
         } else {
           console.error('API response is not as expected:', result);
         }
@@ -42,5 +44,19 @@ export class PersonajesComponent  implements OnInit {
     });
   }
 
+  getPersonajeLocal() {
+    this.personajesService.getCharacterLocal().subscribe((result: any) => {
+      this.characters.set(result);
+    });
+  }
+
+
+  deleteLocal(id: number) {
+    if(confirm("Desea eliminar el personaje?")) {
+      this.personajesService.deleteCharacter(id).subscribe((result: any) => {
+     this.getPersonajeLocal()
+    });
+    }
+  }
 
 }

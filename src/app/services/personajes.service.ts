@@ -1,15 +1,18 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { Character } from '../models/character';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonajesService {
 
+
   private http = inject(HttpClient);
 
-  private readonly url = 'https://rickandmortyapi.com/api/character';
+  private readonly url = 'https://rickandmortyapi.com/api/character/';
+  private readonly urlLocal = 'http://localhost:3000/characters';
 
   characters = new BehaviorSubject(signal<any[]>([])) ;
 
@@ -17,12 +20,13 @@ export class PersonajesService {
 
 
 
-    getCharacter(): Observable<any> {
-      const url = `${this.url}/`;
-      return  this.http.get<any>(url+`?page=${this.getRandomNumber()}`).pipe(catchError(this.handleError));
+  getCharacter(): Observable<any> {
+     return this.http.get<any>(this.url + `?page=${this.getRandomNumber()}`).pipe(catchError(this.handleError));
+    }
+
+  getCharacterLocal(): Observable<any> {
+    return this.http.get<any>(this.urlLocal).pipe(catchError(this.handleError));
   }
-
-
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -42,6 +46,12 @@ export class PersonajesService {
   }
 
 
+  deleteCharacter(id: number) {
+    return this.http.delete<any>(this.urlLocal + `/${id}`);
+  }
 
+  addCharacter(character: Character) : Observable<Character> {
+    return this.http.post<Character>(this.urlLocal, character);
+  }
 
 }
