@@ -13,6 +13,7 @@ import { Character } from '../../models/character';
 })
 export class FormAddComponent {
 
+  // Añadido para la Tarea t42
   servCaharacter = inject(PersonajesService);
   router = inject(Router);
 

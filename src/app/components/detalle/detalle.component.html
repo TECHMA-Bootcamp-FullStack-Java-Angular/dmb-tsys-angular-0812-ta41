@@ -1,19 +1,36 @@
 <div class="container">
   <div id="personaje" class="mx-auto col-sm-3">
-  <div class="card shadow-lg p-2" style="width: 18rem">
+    <div class="card shadow-lg p-2" style="width: 18rem">
 
-    <img [src]="character?.image" alt="imagen character" />
+      <img [src]="character?.image" alt="imagen character" />
 
-    <div class="card-body">
-      <h5 class="card-title text-center">{{ character?.name | uppercase }}</h5>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{ character?.name | uppercase }}</h5>
+      </div>
+        <form [formGroup]="form" (ngSubmit)="editPersonajeLocal()">
+        <label for="">Status:</label>
+        <input class="form-control form-control-sm" type="text" placeholder="{{ character?.status | uppercase }}" aria-label=".form-control-sm example"
+        formControlName="status"
+        >
+        <label for="">Especie:</label>
+        <input class="form-control form-control-sm" type="text" placeholder="{{ character?.species || ' Sin datos ' }}" aria-label=".form-control-sm example"
+        formControlName="species"
+        >
+        <label for="">GenderType:</label>
+        <input class="form-control form-control-sm" type="text" placeholder="{{ character?.gender }}" aria-label=".form-control-sm example"
+        formControlName="gender"
+        >
+         <label for="">Origin:</label>
+         <input class="form-control form-control-sm" type="text" placeholder="{{ character?.origin }}" aria-label=".form-control-sm example"
+         formControlName="origin"
+         >
+         <label for="">Lugar:</label>
+         <input class="form-control form-control-sm" type="text" placeholder="{{ character?.location}}" aria-label=".form-control-sm example"
+         formControlName="location"
+         >
+        <button [disabled]="form.invalid" type="submit"  class="btn btn-sm btn-outline-primary mt-3">Guardar</button>
+
+      </form>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Status: {{ character?.status | uppercase }}</li>
-      <li class="list-group-item">Type: {{ character?.type || ' Sin datos ' }}</li>
-      <li class="list-group-item">Gender: {{ character?.gender }}</li>
-      <li class="list-group-item">Origin: {{ character?.origin.name }}</li>
-    </ul>
-
   </div>
-</div>
 </div>

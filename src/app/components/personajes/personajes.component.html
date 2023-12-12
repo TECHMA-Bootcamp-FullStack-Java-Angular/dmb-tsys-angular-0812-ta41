@@ -17,14 +17,15 @@
                 <div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
                   <button
                     type="button"
-                    class="btn btn-sm btn-outline-primary"
-                    (click)="seeMore(character.id, character)"
+                    class="btn btn-sm btn-warning"
+                    (click)="editPersonajeLocal(character.id, character)"
                   >
-                    Ver Detalles
+                    Editar
                   </button>
+                  <!-- Añadido para la Tarea t42 -->
                   <button
                     type="button"
-                    class="btn btn-sm btn-outline-danger"
+                    class="btn btn-sm btn-danger"
                     (click)="deleteLocal(character.id)"
                   >
                     Eliminar

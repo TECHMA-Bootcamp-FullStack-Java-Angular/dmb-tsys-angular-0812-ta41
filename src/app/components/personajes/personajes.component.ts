@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class PersonajesComponent implements OnInit {
 
 
+
   characters = signal<any[]>([]);
 
   constructor(private personajesService: PersonajesService, private router: Router) { }
@@ -22,11 +23,13 @@ export class PersonajesComponent implements OnInit {
     this.getPersonajeLocal();
   }
 
+  // Tarea t40-41
   seeMore(id: any, character: any) {
     this.personajesService.character = this.characters().find((elem: any) => elem.id == id);
     this.router.navigate(['/detalles', character.id]);
   }
 
+   // Tarea t40-41
   getPersonaje() {
     this.personajesService.getCharacter().subscribe({
 
@@ -44,6 +47,7 @@ export class PersonajesComponent implements OnInit {
     });
   }
 
+   // Tarea t42
   getPersonajeLocal() {
     this.personajesService.getCharacterLocal().subscribe((result: any) => {
       this.characters.set(result);
@@ -51,6 +55,7 @@ export class PersonajesComponent implements OnInit {
   }
 
 
+   // Tarea t42
   deleteLocal(id: number) {
     if(confirm("Desea eliminar el personaje?")) {
       this.personajesService.deleteCharacter(id).subscribe((result: any) => {
@@ -58,5 +63,11 @@ export class PersonajesComponent implements OnInit {
     });
     }
   }
+
+  // Tarea t42
+  editPersonajeLocal(id: any, character: any) {
+    this.personajesService.character = this.characters().find((elem: any) => elem.id == id);
+    this.router.navigate(['/detalles', character.id]);
+    }
 
 }
