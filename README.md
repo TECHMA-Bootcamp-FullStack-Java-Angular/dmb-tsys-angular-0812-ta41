@@ -2,15 +2,15 @@
 
 # BootCamp T-Systems
 
-![My etiqueta](https://img.shields.io/badge/David%20Maza-DiveCode%F0%9F%90%99-blue) ![UD](https://img.shields.io/badge/TA-40-orange)  ![Java Version](https://img.shields.io/badge/Angular-17-red)
+![My etiqueta](https://img.shields.io/badge/David%20Maza-DiveCode%F0%9F%90%99-blue) ![UD](https://img.shields.io/badge/TA-42-orange)  ![Java Version](https://img.shields.io/badge/Angular-17-red)
 
-# T40/41 - Rick & Morty Frontend App  🅰️
+# T42 - Rick & Morty Frontend App  (Evolutionary exercise)🅰️
                              
 This repository contains the Bootcamp tasks 👨‍💻
 
 [Click here to see the exercise](https://main.d2wyvuyhwds53k.amplifyapp.com/)
 
-![image](https://raw.githubusercontent.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-angular-0812-ta41/main/src/assets/Captura.png)
+![image](https://raw.githubusercontent.com/TECHMA-Bootcamp-FullStack-Java-Angular/dmb-tsys-angular-0812-ta42/main/src/assets/Captura2.png)
 
 ## Rules of use 🤜🏼🤛🏼
 
